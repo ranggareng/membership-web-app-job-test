@@ -109,7 +109,7 @@ class RegisterTest extends DuskTestCase
                 ->type("#password", "password")
                 ->type("#password_confirmation", "password")
                 ->pressAndWaitFor('#register')
-                ->waitForReload();
+                ->pause(1000);
 
             $user = User::where('email', 'mochamad.rangga@gmail.com')->first();
             $browser->assertAuthenticatedAs($user);
