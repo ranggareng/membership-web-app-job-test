@@ -108,7 +108,7 @@ class RegisterTest extends DuskTestCase
                 ->type("#email", 'mochamad.rangga@gmail.com')
                 ->type("#password", "password")
                 ->type("#password_confirmation", "password")
-                ->pressAndWaitFor('#register')
+                ->press('#register')
                 ->pause(1000);
 
             $user = User::where('email', 'mochamad.rangga@gmail.com')->first();
