@@ -16,6 +16,13 @@ class Kernel extends ConsoleKernel
     protected function schedule(Schedule $schedule)
     {
         // $schedule->command('inspire')->hourly();
+        $schedule->call(function(){
+            // Query atau Model
+
+            // Foreach
+
+            // Call Notification
+        })->daily();
     }
 
     /**
