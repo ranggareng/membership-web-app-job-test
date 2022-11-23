@@ -15,6 +15,7 @@ class Membership extends Model
      * @var array<int, string>
      */
     protected $fillable = [
+        'membership_id',
         'name',
         'email',
         'password',
@@ -26,5 +27,16 @@ class Membership extends Model
     public function payments()
     {
         return $this->hasMany(Payment::class);
+    }
+
+    /**
+     * Scope a query to only include pending membership.
+     *
+     * @param  \Illuminate\Database\Eloquent\Builder  $query
+     * @return void
+     */
+    public function scopePending($query)
+    {
+        $query->where('status', 'pending');
     }
 }

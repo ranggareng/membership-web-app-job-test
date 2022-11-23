@@ -46,7 +46,8 @@ class Register extends Component
                 'email' => $this->email,
                 'name' => $this->name,
                 'password' => Hash::make($this->password),
-                'membership_plan_id' => $this->membershipPlan
+                'membership_plan_id' => $this->membershipPlan,
+                'status' => 'pending'
             ]);
 
             // Get Membership Plan

@@ -24,7 +24,8 @@
             @endif
 
             <div class="text-sm text-gray-700">
-                <p>Silahkan lakukan pembayaran untuk mengaktifkan akun membership Anda, pembayaran dapat dilakukan dengan cara transfer ke nomor rekening dibawah ini:</p>
+                <p>Hi {{ $membership->name }}, Silahkan lakukan pembayaran sebesar <b> @moneyFormat($membership->payments()->active()->first()->amount)</b> 
+                untuk mengaktifkan akun membership Anda. Pembayaran dapat dilakukan dengan cara transfer ke nomor rekening dibawah ini:</p>
                 <h3 class="my-5 p-5 bg-green-400">Bank BCA No Rek <b>123-456-789</b> A.N Mochamad Rangga</h3>
                 <p class="mt-3">
                     Jika sudah melakukan pembayaran, silahkan lakukan konfirmasi pembayaran dengan cara <a href="{{ route('membership.payment.confirmation') }}" class="text-indigo-700 cursor-pointer hover:text-indigo-600 focus:outline-none focus:underline transition ease-in-out duration-150">Klik Disini</a>.
