@@ -12,19 +12,23 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Prepare The Environment
-        run: cp .env.example .env
+        run: cp .env.dusk.local .env
       - name: Create Database
         run: |
           sudo systemctl start mysql
-          mysql --user="root" --password="root" -e "CREATE DATABASE \`my-database\` character set UTF8mb4 collate utf8mb4_bin;"
+          mysql --user="root" --password="root" -e "CREATE DATABASE \`membership-web-app-testing\` character set UTF8mb4 collate utf8mb4_bin;"
       - name: Install Composer Dependencies
         run: composer install --no-progress --prefer-dist --optimize-autoloader
+      - name: Install NPM
+        run: npm install
       - name: Generate Application Key
         run: php artisan key:generate
       - name: Upgrade Chrome Driver
         run: php artisan dusk:chrome-driver --detect
       - name: Start Chrome Driver
         run: ./vendor/laravel/dusk/bin/chromedriver-linux &
+      - name: Run NPM Build
+        run: npm run build
       - name: Run Laravel Server
         run: php artisan serve --no-reload &
       - name: Run Dusk Tests
