@@ -24,7 +24,7 @@
             @endif
 
             <div class="text-sm text-gray-700">
-                <p>Hi {{ $membership->name }}, Silahkan lakukan pembayaran sebesar <b> @moneyFormat($membership->payments()->active()->first()->amount)</b> 
+                <p>Hi {{ $membership->name }}, Silahkan lakukan pembayaran sebesar <b> @moneyFormat($membership->payments()->pendingOrWaiting()->first()->amount)</b> 
                 untuk mengaktifkan akun membership Anda. Pembayaran dapat dilakukan dengan cara transfer ke nomor rekening dibawah ini:</p>
                 <h3 class="my-5 p-5 bg-green-400">Bank BCA No Rek <b>123-456-789</b> A.N Mochamad Rangga</h3>
                 <p class="mt-3">

@@ -43,6 +43,10 @@ NPM Install
 ```
 php artisan key:generate
 ```
+- Run Database Migration and Seed
+```
+php artisan migration --seed
+```
 
 ### Executing Program
 - Run NPM Dev
