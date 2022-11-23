@@ -16,9 +16,25 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        \App\Models\MembershipPlan::create([
+            'name' => 'Paket Basic',
+            'durasi' => 1,
+            'harga' => 50000,
+            'status' => 'active'
+        ]);
+
+        \App\Models\MembershipPlan::create([
+            'name' => 'Paket Middle',
+            'durasi' => 3,
+            'harga' => 130000,
+            'status' => 'active'
+        ]);
+
+        \App\Models\MembershipPlan::create([
+            'name' => 'Paket Advance',
+            'durasi' => 6,
+            'harga' => 250000,
+            'status' => 'active'
+        ]);
     }
 }

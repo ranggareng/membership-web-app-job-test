@@ -10,6 +10,11 @@ use App\Http\Livewire\Auth\Register;
 use App\Http\Livewire\Auth\Verify;
 use Illuminate\Support\Facades\Route;
 
+// Membership Class
+use App\Http\Livewire\Membership\Auth\Register as RegisterMembership;
+use App\Http\Livewire\Membership\PaymentInformation;
+use App\Http\Livewire\Membership\PaymentConfirmation;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,6 +34,17 @@ Route::middleware('guest')->group(function () {
 
     Route::get('register', Register::class)
         ->name('register');
+
+    Route::group(['prefix' => 'membership'], function(){
+        Route::get('register', RegisterMembership::class)
+        ->name('membership.register');
+
+        Route::get('payment-information/{id}', PaymentInformation::class)
+        ->name('membership.payment.info');
+
+        Route::get('payment-confirmation', PaymentConfirmation::class)
+        ->name('membership.payment.confirmation');
+    });    
 });
 
 Route::get('password/reset', Email::class)
