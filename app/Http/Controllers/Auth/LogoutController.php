@@ -12,7 +12,7 @@ class LogoutController extends Controller
     public function __invoke(): RedirectResponse
     {
         Auth::logout();
-
+        //comment
         return redirect(route('home'));
     }
 }
