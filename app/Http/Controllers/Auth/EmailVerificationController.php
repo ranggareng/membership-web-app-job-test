@@ -28,6 +28,8 @@ class EmailVerificationController extends Controller
         if (Auth::user()->markEmailAsVerified()) {
             event(new Verified(Auth::user()));
         }
+        
+        //Comment
 
         return redirect(route('home'));
     }
